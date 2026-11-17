@@ -10,8 +10,11 @@
         h2 { margin-top: 0; }
         a.peran { display: block; padding: 12px 14px; margin-bottom: 10px; background: #1f6feb; color: #fff; text-decoration: none; border-radius: 6px; text-align: center; }
         a.peran:hover { background: #1558c0; }
+        a.admin { position: fixed; left: 16px; bottom: 16px; z-index: 10; font-size: 13px; color: #667085; text-decoration: none; }
+        a.admin:hover { text-decoration: underline; }
     </style>
 </head>
+<a class="admin" href="<?= site_url('login/admin') ?>">Login Admin</a>
 <body>
 <div class="box">
     <h2>Masuk sebagai</h2>
@@ -19,5 +22,6 @@
         <a class="peran" href="<?= site_url('login/' . $kode) ?>"><?= esc($label) ?></a>
     <?php endforeach; ?>
 </div>
+<a class="admin" href="<?= site_url('login/admin') ?>">Login Admin</a>
 </body>
 </html>

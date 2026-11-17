@@ -26,7 +26,9 @@ class Auth extends BaseController
 
     public function formLogin($peran)
     {
-        if (! isset($this->daftarPeran[$peran])) {
+        $semuaPeran = $this->daftarPeran + ['admin' => 'Admin'];
+
+        if (! isset($semuaPeran[$peran])) {
             return redirect()->to('/login');
         }
 
@@ -38,7 +40,7 @@ class Auth extends BaseController
 
         return view('auth/form_login', [
             'peran'      => $peran,
-            'labelPeran' => $this->daftarPeran[$peran],
+            'labelPeran' => $semuaPeran[$peran],
             'pengguna'   => $pengguna,
         ]);
     }
