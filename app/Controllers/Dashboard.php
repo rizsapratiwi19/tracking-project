@@ -10,6 +10,10 @@ class Dashboard extends BaseController
             return redirect()->to('/login');
         }
 
+        if (session()->get('peran') === 'front_office') {
+            return redirect()->to('/permohonan');
+        }
+
         return view('dashboard/index');
     }
 }

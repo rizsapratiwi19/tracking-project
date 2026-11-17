@@ -30,7 +30,19 @@
         .btn.merah { background: #d92d20; }
         .form-baris { margin-bottom: 14px; }
         .form-baris label { display: block; font-weight: bold; margin-bottom: 6px; }
-        .form-baris input[type=text], .form-baris input[type=number] { width: 100%; max-width: 380px; padding: 9px; }
+        .form-baris input[type=text], .form-baris input[type=number], .form-baris input[type=date] { width: 100%; max-width: 380px; padding: 9px; }
+        .form-baris textarea { width: 100%; max-width: 480px; padding: 9px; font-family: inherit; }
+        .form-baris label.pilihan { display: inline-block; font-weight: normal; margin-right: 16px; }
+        .tab-baris { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+        .tab-baris.sub { margin-top: -4px; }
+        .tab { padding: 8px 14px; background: #e4e7ec; color: #1b2a41; text-decoration: none; border-radius: 6px; font-size: 14px; }
+        .tab.aktif { background: #1f6feb; color: #fff; }
+        .filter { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
+        .filter select { padding: 8px; }
+        .kartu-baris { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+        .kartu { background: #fff; padding: 14px 18px; border-radius: 8px; min-width: 150px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+        .kartu .angka { font-size: 26px; font-weight: bold; }
+        .kartu .label { color: #667085; font-size: 13px; }
         .tabel-geser { overflow-x: auto; }
 
         @media (max-width: 768px) {
@@ -44,6 +56,11 @@
         <div class="brand">Tracking Perizinan</div>
         <nav>
             <a href="<?= site_url('dashboard') ?>">Dashboard</a>
+
+            <?php if (in_array(session()->get('peran'), ['front_office', 'admin'], true)): ?>
+                <div class="grup">Perizinan</div>
+                <a href="<?= site_url('permohonan') ?>">Daftar Berkas</a>
+            <?php endif; ?>
 
             <?php if (session()->get('peran') === 'admin'): ?>
                 <div class="grup">Master Data</div>

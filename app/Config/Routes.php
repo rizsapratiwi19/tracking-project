@@ -10,6 +10,12 @@ $routes->post('login/proses', 'Auth::proses');
 $routes->get('logout', 'Auth::logout');
 $routes->get('dashboard', 'Dashboard::index', ['filter' => 'auth']);
 
+$routes->group('permohonan', ['filter' => 'auth:front_office,admin'], function ($routes) {
+    $routes->get('/', 'Permohonan::index');
+    $routes->get('tambah', 'Permohonan::tambah');
+    $routes->post('simpan', 'Permohonan::simpan');
+});
+
 $routes->group('admin', ['filter' => 'auth:admin', 'namespace' => 'App\Controllers\Admin'], function ($routes) {
     $routes->get('jenis-izin', 'JenisIzin::index');
     $routes->get('jenis-izin/tambah', 'JenisIzin::tambah');
