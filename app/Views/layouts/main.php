@@ -45,6 +45,16 @@
         .kartu .label { color: #667085; font-size: 13px; }
         .tabel-geser { overflow-x: auto; }
 
+        .info td { padding: 6px 10px 6px 0; border: 0; vertical-align: top; }
+        .info td:first-child { width: 190px; color: #667085; }
+        .info { background: transparent; width: auto; }
+        .baris-aktif td { background: #fff8e1; }
+        .badge { padding: 3px 8px; border-radius: 10px; font-size: 12px; background: #e4e7ec; }
+        .badge.hijau { background: #e6f6ec; color: #17653a; }
+        .badge.kuning { background: #fff1c2; color: #7a5b00; }
+
+        .form-baris select { width: 100%; max-width: 380px; padding: 9px; }
+
         @media (max-width: 768px) {
             body { flex-direction: column; }
             .sidebar { width: 100%; }
@@ -56,6 +66,7 @@
         <div class="brand">Tracking Perizinan</div>
         <nav>
             <a href="<?= site_url('dashboard') ?>">Dashboard</a>
+            <a href="<?= site_url('tugas') ?>">Tugas Saya</a>
 
             <?php if (in_array(session()->get('peran'), ['front_office', 'admin'], true)): ?>
                 <div class="grup">Perizinan</div>
@@ -65,6 +76,7 @@
             <?php if (session()->get('peran') === 'admin'): ?>
                 <div class="grup">Master Data</div>
                 <a href="<?= site_url('admin/jenis-izin') ?>">Jenis Izin</a>
+                <a href="<?= site_url('admin/pengguna') ?>">Pengguna</a>
             <?php endif; ?>
         </nav>
         <div class="user">

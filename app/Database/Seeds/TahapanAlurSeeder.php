@@ -28,21 +28,21 @@ class TahapanAlurSeeder extends Seeder
 
         // Tahap umum sementara untuk jenis izin lain, sampai kartu kendalinya ada
         $tahapUmum = [
-            ['Penerimaan Berkas',        'front_office'],
-            ['Register Berkas',          'front_office'],
-            ['Verifikasi',               'verifikator'],
-            ['Cetak Surat Tanggapan',    'cetak_izin'],
-            ['Survey Lapangan',          'back_office'],
-            ['Cetak Sertifikat Izin',    'cetak_izin'],
-            ['Validasi',                 'verifikator'],
-            ['Penandatanganan Izin',     'kepala_dinas'],
+            ['Penerimaan Berkas',         'front_office'],
+            ['Register Berkas',           'front_office'],
+            ['Verifikasi',                'verifikator'],
+            ['Cetak Surat Tanggapan',     'cetak_izin'],
+            ['Survey Lapangan',           'back_office'],
+            ['Cetak Sertifikat Izin',     'cetak_izin'],
+            ['Validasi',                  'verifikator'],
+            ['Penandatanganan Izin',      'kepala_dinas'],
             ['Penomoran dan Pengarsipan', 'cetak_izin'],
         ];
 
         $rows = [];
 
         foreach ($this->db->table('jenis_izin')->get()->getResultArray() as $jenis) {
-            $tahap = ($jenis['kode'] === 'PKKPR') ? $tahapKkpr : $tahapUmum;
+            $tahap  = ($jenis['kode'] === 'PKKPR') ? $tahapKkpr : $tahapUmum;
             $urutan = 1;
 
             foreach ($tahap as [$nama, $peran]) {

@@ -73,7 +73,7 @@
             <?php endif; ?>
             <?php foreach ($daftar as $row): ?>
                 <tr>
-                    <td><?= esc($row['nomor_register']) ?></td>
+                    <td><a href="<?= site_url('berkas/' . $row['id']) ?>"><?= esc($row['nomor_register']) ?></a></td>
                     <td><?= esc(date('d-m-Y', strtotime($row['tanggal_terima']))) ?></td>
                     <td><?= esc($row['nama_pemohon']) ?></td>
                     <td><?= esc(mb_strimwidth((string) $row['uraian_permohonan'], 0, 60, '...')) ?></td>
